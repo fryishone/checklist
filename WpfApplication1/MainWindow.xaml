@@ -1,0 +1,29 @@
+﻿<Window x:Class="CheckListApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid x:Name="mainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Menu IsMainMenu="True" HorizontalAlignment="Stretch"  VerticalAlignment="Top">
+            <MenuItem Header="_File">
+                <MenuItem x:Name="sbmnu_exit" Header="_Exit" Click="filemnu_exit_Click">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem x:Name="sbmnu_about" Header="_About" Click="filemnu_about_Click">
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <ScrollViewer Margin="0,21,0,0" Name="dynamicScrollbar" VerticalScrollBarVisibility="Auto">
+            <Grid Margin="0,10,0,0">
+
+                <Grid Name="dynamicContent" Margin="0,0,0,50">
+                </Grid>
+
+                <Grid Margin="0, 20, 0, 0">
+                    <Button Content="Submit" Width="75" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,0" Click="submitInfo"/>
+                </Grid>
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>
