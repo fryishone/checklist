@@ -1,4 +1,5 @@
 ﻿using CheckListApp;
+using CheckListApp.TestSuite;
 using CheckListApp.Util;
 using LibCLModel;
 using System;
@@ -26,22 +27,38 @@ namespace CheckListApp
     {
         CheckList checkListGrid;
 
+        /**
+         * MainWindow startup
+         * Attempt to create the CheckListGrid and add it to the dynamicContent grid in Window
+         * Removed database component for now.
+         */
         public MainWindow()
         {
             InitializeComponent();
-            CLEntities dbEntity = new CLEntities();
-            checkListGrid = new CheckList(dbEntity);
-            dynamicContent.Children.Add(checkListGrid);
+
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+
+            try
+            {
+                checkListGrid = new CheckList(new DatabaseEntity());
+                dynamicContent.Children.Add(checkListGrid);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            
         }
 
         /**
-        * Create a datasubmission object and submit list of values
-        * If return true, datasubmitted successful otherwise not (empty checklist).
-        */
+         * Submit button listener
+         * If return true, datasubmitted successful otherwise not (empty checklist).
+         */
         private void submitInfo(object sender, RoutedEventArgs e)
         {
 
-            DataSubmission ds = new DataSubmission(checkListGrid.checkListValues);
+            DataSubmission ds = new DataSubmission(checkListGrid.checkListBindings);
 
             try
             {
@@ -60,8 +77,10 @@ namespace CheckListApp
             }
         }
 
+
+   
         /**
-        * Menu: Exit
+         * Menu: Exit
          */
         private void filemnu_exit_Click(object sender, RoutedEventArgs e)
         {

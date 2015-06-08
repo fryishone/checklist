@@ -1,4 +1,5 @@
-﻿using LibCLModel;
+﻿using CheckListApp.TestSuite;
+using LibCLModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,28 +16,35 @@ namespace CheckListApp.Util
      * Checks the DB connection entity to ensure open/valid then proceeds with
      * the logic of adding each UI component to the grid based on the order the list is recieved for
      * a given checklist ID.
-     * @Param: dbConnection, CLEntities connection used for retrieving checklists
+     * @Param: dbEntity, CLEntities connection used for retrieving checklists
      */ 
     class CheckList : Grid
     {
-        public List<Binding> checkListValues { get; private set; }
+        public List<Binding> checkListBindings { get; private set; }
         public int checkListID { get; private set; }
 
-        public CheckList(CLEntities dbEntity) 
+        private List<TASKVALUEFULLV_CL> checklistValues;
+
+        private List<TASKFULLORDEREDV_CL> checklist;
+
+        private DatabaseEntity dbEntity;
+
+        public CheckList(DatabaseEntity dbEntity) 
         {
             try 
             {
-                dbEntity.Database.Connection.Open();
+                this.dbEntity = dbEntity;
+                if (!this.buildGrid())
+                {
+                    MessageBox.Show("Error building grid");
+                }
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error opening database connection\n" + ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
-            if ( !this.buildGrid() )
-            {
-                MessageBox.Show("Error building grid");
-            }
         }
 
         /** 
@@ -44,6 +52,35 @@ namespace CheckListApp.Util
          */
         private Boolean buildGrid() 
         {
+            int ROW = 1;
+            int QUESTIONNUM = 1;
+
+            this.VerticalAlignment = VerticalAlignment.Stretch;
+            this.HorizontalAlignment = HorizontalAlignment.Stretch;
+            this.ColumnDefinitions.Add(
+                                new ColumnDefinition() { Width = new GridLength(35.0) });
+            this.ColumnDefinitions.Add(
+                                new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+            this.ColumnDefinitions.Add(
+                                new ColumnDefinition() { Width = new GridLength(115.0) });
+
+
+            try
+            {
+                checklist = dbEntity.getQuestionList();
+
+                    foreach (TASKFULLORDEREDV_CL question in checklist)
+                    {
+                        checklistValues = dbEntity.getQuestionValues();
+
+                    }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            
             return false;
         }
     }
