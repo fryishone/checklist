@@ -78,10 +78,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Interface\UIComponents.cs" />
-    <Compile Include="Startup\CheckList.cs" />
-    <Compile Include="TestSuite\DatabaseEntity.cs" />
+    <Compile Include="Startup\ChecklistDriver.cs" />
+    <Compile Include="TestSuite\QuestionResponse.cs" />
+    <Compile Include="TestSuite\Question.cs" />
     <Compile Include="TestSuite\TestStartup.cs" />
     <Compile Include="Util\DataSubmission.cs" />
+    <Compile Include="Util\QuestionENUMS.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

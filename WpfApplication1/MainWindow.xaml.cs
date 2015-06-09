@@ -25,7 +25,7 @@ namespace CheckListApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        CheckList checkListGrid;
+        ChecklistDriver checkListGrid;
 
         /**
          * MainWindow startup
@@ -40,7 +40,7 @@ namespace CheckListApp
 
             try
             {
-                checkListGrid = new CheckList(new DatabaseEntity());
+                checkListGrid = new ChecklistDriver();
                 dynamicContent.Children.Add(checkListGrid);
             }
             catch (Exception ex)

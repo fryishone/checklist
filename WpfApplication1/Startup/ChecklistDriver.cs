@@ -1,5 +1,4 @@
 ﻿using CheckListApp.TestSuite;
-using LibCLModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,28 +11,22 @@ using System.Windows.Data;
 namespace CheckListApp.Util
 {
     /**
-     * CheckList Class to build the grid in the main window.
-     * Checks the DB connection entity to ensure open/valid then proceeds with
-     * the logic of adding each UI component to the grid based on the order the list is recieved for
-     * a given checklist ID.
-     * @Param: dbEntity, CLEntities connection used for retrieving checklists
-     */ 
-    class CheckList : Grid
+     * Responsible for building the dynamic grid for the main window
+     */
+    class ChecklistDriver : Grid
     {
         public List<Binding> checkListBindings { get; private set; }
         public int checkListID { get; private set; }
 
-        private List<TASKVALUEFULLV_CL> checklistValues;
+        private List<QuestionResponse> checklistValues;
 
-        private List<TASKFULLORDEREDV_CL> checklist;
+        private List<Question> checklist;
 
-        private DatabaseEntity dbEntity;
 
-        public CheckList(DatabaseEntity dbEntity) 
+        public ChecklistDriver() 
         {
             try 
             {
-                this.dbEntity = dbEntity;
                 if (!this.buildGrid())
                 {
                     MessageBox.Show("Error building grid");
@@ -52,8 +45,8 @@ namespace CheckListApp.Util
          */
         private Boolean buildGrid() 
         {
-            int ROW = 1;
-            int QUESTIONNUM = 1;
+            int rownum = 1;
+            int questionnum = 1;
 
             this.VerticalAlignment = VerticalAlignment.Stretch;
             this.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -67,11 +60,9 @@ namespace CheckListApp.Util
 
             try
             {
-                checklist = dbEntity.getQuestionList();
 
-                    foreach (TASKFULLORDEREDV_CL question in checklist)
+                    foreach (Question question in checklist)
                     {
-                        checklistValues = dbEntity.getQuestionValues();
 
                     }
 

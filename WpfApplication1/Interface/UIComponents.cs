@@ -1,8 +1,12 @@
-﻿using System;
+﻿using CheckListApp.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace CheckListApp.Interface
 {
@@ -12,17 +16,23 @@ namespace CheckListApp.Interface
      */
     class UIComponents
     {
+
+        public UIComponents()
+        {
+
+        }
+
         /**
-         *  static constants used for checklist question types and responses
-         *  Also used in the CheckList class.
+         * create a row definition for the grid layout
          */
-        public const string GROUP_PREFIX = "taskID";
-        public const string YES = "Yes";
-        public const string NO = "No";
-        public const string Y = "Y";
-        public const string N = "N";
-        public const string LIST_BOX = "LISTBOX";
-        public const string CHECK_BOX = "CHECKBOX";
+        public RowDefinition createRowDefinition()
+        {
+            RowDefinition RowDefinition = new RowDefinition();
+            RowDefinition.Height = GridLength.Auto;
+
+            return RowDefinition;
+        }
+
 
     }
 }
