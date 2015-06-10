@@ -61,6 +61,10 @@ namespace CheckListApp.Util
             try
             {
 
+                    /*
+                     * For each question in the checklist, call the appropriate type
+                     * and put the gui componenet into the grid
+                     */
                     foreach (Question question in checklist)
                     {
 

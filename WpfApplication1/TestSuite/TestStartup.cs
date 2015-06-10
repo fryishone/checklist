@@ -1,9 +1,12 @@
-﻿using CheckListApp.Util;
+﻿using CheckListApp.Interface;
+using CheckListApp.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace CheckListApp.TestSuite
 {
@@ -21,10 +24,107 @@ namespace CheckListApp.TestSuite
 
             QuestionValueTest();
             QuestionTest();
+
+            UIComponentsTest();
+
+            
         }
 
+        /**
+         * Initial test approach will be to just create a row, add a component and repeat
+         */
         public static void UIComponentsTest()
         {
+            UIComponents componentBuilder = new UIComponents();
+            UIWindowTest window = new UIWindowTest();
+
+            int rownum = 0;
+            int questionnum = 1;
+            int COLUMN1 = 1;
+            int COLUMN2 = 2;
+
+            Grid grid = new Grid();
+
+
+            /** set the grid width */
+            grid.VerticalAlignment = VerticalAlignment.Stretch;
+            grid.HorizontalAlignment = HorizontalAlignment.Stretch;
+            grid.ColumnDefinitions.Add(
+                                new ColumnDefinition() { Width = new GridLength(35.0) });
+            grid.ColumnDefinitions.Add(
+                                new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+            grid.ColumnDefinitions.Add(
+                                new ColumnDefinition() { Width = new GridLength(115.0) });
+
+
+            // create checklist title
+            grid.RowDefinitions.Add(componentBuilder.createRowDefinition());
+            TextBlock tb = componentBuilder.createTitleBox("Checklist Title");
+            grid.Children.Add(componentBuilder.titleBorder(rownum, tb));
+            
+            rownum++;
+
+            // create first question
+            grid.RowDefinitions.Add(componentBuilder.createRowDefinition());
+
+            tb = componentBuilder.createQuestionNums(questionnum);
+            grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
+
+            grid.Children.Add(componentBuilder.createTextBox("The first question", rownum, COLUMN1));
+            grid.Children.Add(componentBuilder.yesNo(rownum, null));
+
+            questionnum++;
+            rownum++;
+
+            // create second question
+            grid.RowDefinitions.Add(componentBuilder.createRowDefinition());
+
+            tb = componentBuilder.createQuestionNums(questionnum);
+            grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
+
+            grid.Children.Add(componentBuilder.createTextBox("The second question", rownum, COLUMN1));
+            grid.Children.Add(componentBuilder.yesNo(rownum, null));
+
+            questionnum++;
+            rownum++;
+
+            // create third question
+            grid.RowDefinitions.Add(componentBuilder.createRowDefinition());
+
+            tb = componentBuilder.createQuestionNums(questionnum);
+            grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
+
+            grid.Children.Add(componentBuilder.createTextBox("The third question", rownum, COLUMN1));
+            grid.Children.Add(componentBuilder.yesNo(rownum, "YES"));
+
+            questionnum++;
+            rownum++;
+
+            // create fourth question
+            grid.RowDefinitions.Add(componentBuilder.createRowDefinition());
+
+            tb = componentBuilder.createQuestionNums(questionnum);
+            grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
+
+            grid.Children.Add(componentBuilder.createTextBox("The fourth question", rownum, COLUMN1));
+            grid.Children.Add(componentBuilder.yesNo(rownum, "NO"));
+
+            questionnum++;
+            rownum++;
+
+            // create fifth question
+            grid.RowDefinitions.Add(componentBuilder.createRowDefinition());
+
+            tb = componentBuilder.createQuestionNums(questionnum);
+            grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
+
+            grid.Children.Add(componentBuilder.createTextBox("The fifth question", rownum, COLUMN1));
+            grid.Children.Add(componentBuilder.yesNo(rownum, "YES"));
+
+
+            window.dynamicContent.Children.Add(grid);
+            window.Show();
+            System.Windows.Threading.Dispatcher.Run();
 
         }
 

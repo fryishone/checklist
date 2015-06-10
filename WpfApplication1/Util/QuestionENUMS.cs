@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 namespace CheckListApp.Util
 {
 
+    /**
+     * Enums for question type/response used by multiple classes
+     */
     class QuestionENUMS
     {
         public enum questionType
