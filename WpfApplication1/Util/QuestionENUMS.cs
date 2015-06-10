@@ -21,7 +21,8 @@ namespace CheckListApp.Util
         public enum questionValue
         {
             YES,
-            NO
+            NO,
+            NOVALUE
         }
 
         public QuestionENUMS()

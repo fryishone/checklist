@@ -45,8 +45,6 @@ namespace CheckListApp.Util
          */
         private Boolean buildGrid() 
         {
-            int rownum = 1;
-            int questionnum = 1;
 
             this.VerticalAlignment = VerticalAlignment.Stretch;
             this.HorizontalAlignment = HorizontalAlignment.Stretch;

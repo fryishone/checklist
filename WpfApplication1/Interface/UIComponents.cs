@@ -102,15 +102,15 @@ namespace CheckListApp.Interface
          * Create a yes no radio box to be used in the form
          * The group names of checkboxes will be based on their TASKVALUEID
          */
-        public StackPanel yesNo(int row, string value)
+        public StackPanel yesNo(int row, QuestionENUMS.questionValue value)
         {
 
             StackPanel sp = new StackPanel();
             sp.Orientation = Orientation.Horizontal;
 
-            if (value != null)
+            if (value != QuestionENUMS.questionValue.NOVALUE)
             {
-                if (value == QuestionENUMS.questionValue.YES.ToString())
+                if (value == QuestionENUMS.questionValue.YES)
                 {
                     sp.Children.Add(createRadioButton(QuestionENUMS.questionValue.YES, true));
                     sp.Children.Add(createRadioButton(QuestionENUMS.questionValue.NO, false));

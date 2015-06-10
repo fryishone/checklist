@@ -41,7 +41,6 @@ namespace CheckListApp.TestSuite
             int rownum = 0;
             int questionnum = 1;
             int COLUMN1 = 1;
-            int COLUMN2 = 2;
 
             Grid grid = new Grid();
 
@@ -71,7 +70,7 @@ namespace CheckListApp.TestSuite
             grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
 
             grid.Children.Add(componentBuilder.createTextBox("The first question", rownum, COLUMN1));
-            grid.Children.Add(componentBuilder.yesNo(rownum, null));
+            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionENUMS.questionValue.NOVALUE));
 
             questionnum++;
             rownum++;
@@ -83,7 +82,7 @@ namespace CheckListApp.TestSuite
             grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
 
             grid.Children.Add(componentBuilder.createTextBox("The second question", rownum, COLUMN1));
-            grid.Children.Add(componentBuilder.yesNo(rownum, null));
+            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionENUMS.questionValue.NOVALUE));
 
             questionnum++;
             rownum++;
@@ -95,7 +94,7 @@ namespace CheckListApp.TestSuite
             grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
 
             grid.Children.Add(componentBuilder.createTextBox("The third question", rownum, COLUMN1));
-            grid.Children.Add(componentBuilder.yesNo(rownum, "YES"));
+            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionENUMS.questionValue.YES));
 
             questionnum++;
             rownum++;
@@ -107,7 +106,7 @@ namespace CheckListApp.TestSuite
             grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
 
             grid.Children.Add(componentBuilder.createTextBox("The fourth question", rownum, COLUMN1));
-            grid.Children.Add(componentBuilder.yesNo(rownum, "NO"));
+            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionENUMS.questionValue.NO));
 
             questionnum++;
             rownum++;
@@ -119,7 +118,7 @@ namespace CheckListApp.TestSuite
             grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
 
             grid.Children.Add(componentBuilder.createTextBox("The fifth question", rownum, COLUMN1));
-            grid.Children.Add(componentBuilder.yesNo(rownum, "YES"));
+            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionENUMS.questionValue.YES));
 
 
             window.dynamicContent.Children.Add(grid);
