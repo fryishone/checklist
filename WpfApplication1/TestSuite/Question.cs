@@ -14,12 +14,12 @@ namespace CheckListApp.TestSuite
      */
     class Question
     {
-        public QuestionENUMS.questionType questionType { get; private set; }
+        public QuestionType questionType { get; private set; }
 
         public string question { get; private set; }
         public List<QuestionResponse> questionResponse { get; private set; }
 
-        public Question(QuestionENUMS.questionType questionType, string question, List<string> response)
+        public Question(QuestionType questionType, string question, List<string> response)
         {
             this.questionType = questionType;
             this.question = question;
@@ -27,7 +27,7 @@ namespace CheckListApp.TestSuite
 
             foreach (string responseMsg in response)
             {
-                questionResponse.Add(new QuestionResponse(responseMsg, QuestionENUMS.questionValue.NO));
+                questionResponse.Add(new QuestionResponse(responseMsg, QuestionValue.NO));
             }
                
 

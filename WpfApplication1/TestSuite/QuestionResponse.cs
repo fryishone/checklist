@@ -15,9 +15,9 @@ namespace CheckListApp.TestSuite
     class QuestionResponse
     {
         public string responseMessage { get; private set; }
-        public QuestionENUMS.questionValue  responseValue { get; set; }
+        public QuestionValue  responseValue { get; set; }
 
-        public QuestionResponse(string responseMessage, QuestionENUMS.questionValue value)
+        public QuestionResponse(string responseMessage, QuestionValue value)
         {
             this.responseMessage = responseMessage;
             this.responseValue = value;

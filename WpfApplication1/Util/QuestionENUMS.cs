@@ -12,22 +12,19 @@ namespace CheckListApp.Util
      */
     class QuestionENUMS
     {
-        public enum questionType
-        {
-            CHECKBOX,
-            YESNO
-        }
 
-        public enum questionValue
-        {
-            YES,
-            NO,
-            NOVALUE
-        }
 
-        public QuestionENUMS()
-        {
+    }
+    public enum QuestionType
+    {
+        CHECKBOX,
+        YESNO
+    }
 
-        }
+    public enum QuestionValue
+    {
+        YES,
+        NO,
+        NOVALUE
     }
 }

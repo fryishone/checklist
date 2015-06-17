@@ -27,7 +27,7 @@ namespace CheckListApp.Interface
          * Create a radio button (either yes or no)
          * May have this return a grid row containing 2 radio buttons?
          */
-        public RadioButton createRadioButton(QuestionENUMS.questionValue msg, Boolean value) 
+        public RadioButton createRadioButton(QuestionValue msg, Boolean value) 
         { 
             RadioButton rb = new RadioButton() { };
             rb.Content = msg;
@@ -102,30 +102,30 @@ namespace CheckListApp.Interface
          * Create a yes no radio box to be used in the form
          * The group names of checkboxes will be based on their TASKVALUEID
          */
-        public StackPanel yesNo(int row, QuestionENUMS.questionValue value)
+        public StackPanel yesNo(int row, QuestionValue value)
         {
 
             StackPanel sp = new StackPanel();
             sp.Orientation = Orientation.Horizontal;
 
-            if (value != QuestionENUMS.questionValue.NOVALUE)
+            if (value != QuestionValue.NOVALUE)
             {
-                if (value == QuestionENUMS.questionValue.YES)
+                if (value == QuestionValue.YES)
                 {
-                    sp.Children.Add(createRadioButton(QuestionENUMS.questionValue.YES, true));
-                    sp.Children.Add(createRadioButton(QuestionENUMS.questionValue.NO, false));
+                    sp.Children.Add(createRadioButton(QuestionValue.YES, true));
+                    sp.Children.Add(createRadioButton(QuestionValue.NO, false));
 
                 }
                 else
                 {
-                    sp.Children.Add(createRadioButton(QuestionENUMS.questionValue.YES, false));
-                    sp.Children.Add(createRadioButton(QuestionENUMS.questionValue.NO, true));
+                    sp.Children.Add(createRadioButton(QuestionValue.YES, false));
+                    sp.Children.Add(createRadioButton(QuestionValue.NO, true));
                 }
             }
             else
             {
-                sp.Children.Add(createRadioButton(QuestionENUMS.questionValue.YES, false));
-                sp.Children.Add(createRadioButton(QuestionENUMS.questionValue.NO, false));
+                sp.Children.Add(createRadioButton(QuestionValue.YES, false));
+                sp.Children.Add(createRadioButton(QuestionValue.NO, false));
             }
 
             Grid.SetColumn(sp, 2);
