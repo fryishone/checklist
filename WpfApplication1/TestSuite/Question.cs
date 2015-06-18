@@ -35,7 +35,7 @@ namespace CheckListApp.TestSuite
 
         public override string ToString()
         {
-            string returnVal = questionType + " " + question;
+            string returnVal = string.Format("{0} {1}", questionType, question);
             foreach (QuestionResponse response in questionResponse)
             {
                 returnVal += "\n" + response.ToString();

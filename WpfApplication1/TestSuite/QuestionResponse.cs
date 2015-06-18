@@ -1,9 +1,4 @@
 ﻿using CheckListApp.Util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CheckListApp.TestSuite
 {
@@ -12,10 +7,12 @@ namespace CheckListApp.TestSuite
      * Normally these would be created through entity framework
      * Each question will have > 1 of these responses depending on question type
      */
-    class QuestionResponse
+
+    internal class QuestionResponse
     {
         public string responseMessage { get; private set; }
-        public QuestionValue  responseValue { get; set; }
+
+        public QuestionValue responseValue { get; set; }
 
         public QuestionResponse(string responseMessage, QuestionValue value)
         {
@@ -30,9 +27,7 @@ namespace CheckListApp.TestSuite
                 return this.responseValue.ToString();
             }
             else
-                return responseMessage + " " + responseValue;
+                return string.Format("{0} {1}", responseMessage, responseValue);
         }
-
-        
     }
 }

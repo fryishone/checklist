@@ -86,7 +86,8 @@
       <DependentUpon>UIWindowTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\DataSubmission.cs" />
-    <Compile Include="Util\QuestionENUMS.cs" />
+    <Compile Include="Util\QuestionType.cs" />
+    <Compile Include="Util\QuestionValue.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

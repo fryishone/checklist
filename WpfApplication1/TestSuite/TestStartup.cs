@@ -70,7 +70,7 @@ namespace CheckListApp.TestSuite
             grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
 
             grid.Children.Add(componentBuilder.createTextBox("The first question", rownum, COLUMN1));
-            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionENUMS.questionValue.NOVALUE));
+            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionValue.NOVALUE));
 
             questionnum++;
             rownum++;
@@ -82,7 +82,7 @@ namespace CheckListApp.TestSuite
             grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
 
             grid.Children.Add(componentBuilder.createTextBox("The second question", rownum, COLUMN1));
-            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionENUMS.questionValue.NOVALUE));
+            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionValue.NOVALUE));
 
             questionnum++;
             rownum++;
@@ -94,7 +94,7 @@ namespace CheckListApp.TestSuite
             grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
 
             grid.Children.Add(componentBuilder.createTextBox("The third question", rownum, COLUMN1));
-            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionENUMS.questionValue.YES));
+            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionValue.YES));
 
             questionnum++;
             rownum++;
@@ -106,7 +106,7 @@ namespace CheckListApp.TestSuite
             grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
 
             grid.Children.Add(componentBuilder.createTextBox("The fourth question", rownum, COLUMN1));
-            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionENUMS.questionValue.NO));
+            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionValue.NO));
 
             questionnum++;
             rownum++;
@@ -118,7 +118,7 @@ namespace CheckListApp.TestSuite
             grid.Children.Add(componentBuilder.questionBorder(rownum, tb));
 
             grid.Children.Add(componentBuilder.createTextBox("The fifth question", rownum, COLUMN1));
-            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionENUMS.questionValue.YES));
+            grid.Children.Add(componentBuilder.yesNo(rownum, QuestionValue.YES));
 
 
             window.dynamicContent.Children.Add(grid);
@@ -139,10 +139,10 @@ namespace CheckListApp.TestSuite
 
             for ( int i = 1; i<=5; i++)
             {
-                questionResponse1.Add("#1 Testing value " + i + ":");
+                questionResponse1.Add(string.Format("#1 Testing value {0}:", i));
             }
 
-            checklist.Add(new Question(QuestionENUMS.questionType.CHECKBOX, "Checkbox Question #1:", questionResponse1));
+            checklist.Add(new Question(QuestionType.CHECKBOX, "Checkbox Question #1:", questionResponse1));
 
             Console.WriteLine("\n\nQUESTION TEST #1");
             foreach (Question question in checklist)
@@ -156,11 +156,11 @@ namespace CheckListApp.TestSuite
         {
             List<QuestionResponse> questionResponse1 = new List<QuestionResponse>();
 
-            questionResponse1.Add(new QuestionResponse("#1 Testing value 1:", Util.QuestionENUMS.questionValue.NO));
-            questionResponse1.Add(new QuestionResponse("#1 Testing value 2:", Util.QuestionENUMS.questionValue.NO));
-            questionResponse1.Add(new QuestionResponse("#1 Testing value 3:", Util.QuestionENUMS.questionValue.NO));
-            questionResponse1.Add(new QuestionResponse("#1 Testing value 4:", Util.QuestionENUMS.questionValue.NO));
-            questionResponse1.Add(new QuestionResponse("#1 Testing value 5:", Util.QuestionENUMS.questionValue.NO));
+            questionResponse1.Add(new QuestionResponse("#1 Testing value 1:", Util.QuestionValue.NO));
+            questionResponse1.Add(new QuestionResponse("#1 Testing value 2:", Util.QuestionValue.NO));
+            questionResponse1.Add(new QuestionResponse("#1 Testing value 3:", Util.QuestionValue.NO));
+            questionResponse1.Add(new QuestionResponse("#1 Testing value 4:", Util.QuestionValue.NO));
+            questionResponse1.Add(new QuestionResponse("#1 Testing value 5:", Util.QuestionValue.NO));
 
             //First response output
             Console.WriteLine("QUESTION RESPONSE TEST #1");
@@ -172,11 +172,11 @@ namespace CheckListApp.TestSuite
 
             List<QuestionResponse> questionResponse2 = new List<QuestionResponse>();
 
-            questionResponse2.Add(new QuestionResponse("#2 Testing value 1:", Util.QuestionENUMS.questionValue.NO));
-            questionResponse2.Add(new QuestionResponse("#2 Testing value 2:", Util.QuestionENUMS.questionValue.YES));
-            questionResponse2.Add(new QuestionResponse("#2 Testing value 3:", Util.QuestionENUMS.questionValue.NO));
-            questionResponse2.Add(new QuestionResponse("#2 Testing value 4:", Util.QuestionENUMS.questionValue.YES));
-            questionResponse2.Add(new QuestionResponse("#2 Testing value 5:", Util.QuestionENUMS.questionValue.NO));
+            questionResponse2.Add(new QuestionResponse("#2 Testing value 1:", Util.QuestionValue.NO));
+            questionResponse2.Add(new QuestionResponse("#2 Testing value 2:", Util.QuestionValue.YES));
+            questionResponse2.Add(new QuestionResponse("#2 Testing value 3:", Util.QuestionValue.NO));
+            questionResponse2.Add(new QuestionResponse("#2 Testing value 4:", Util.QuestionValue.YES));
+            questionResponse2.Add(new QuestionResponse("#2 Testing value 5:", Util.QuestionValue.NO));
 
             //Second response output
             Console.WriteLine("\n\nQUESTION RESPONSE TEST #2");
